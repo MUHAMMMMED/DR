@@ -1,0 +1,32 @@
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %} <title></title>
+<section class="flex-container-Info" style=" margin-bottom: 0px;
+  padding-bottom:0px;
+  border: 0px solid  #fff; 
+  
+  ">
+    <div class="site-heading ">
+        <h3 class="Title "> أشهر الأسئله وأجوبتها </h3>
+        <hr>
+    </div><br>
+    <div class="qs">
+        <p style="font-size: 15px;  padding-bottom:15px;"> ستجد أدناه إجابات لبعض الأسئلة الأكثر شيوعًا نحن نضيف باستمرار الأسئلة الأكثر شيوعًا إلى هذه الصفحة </p> {% for Question in Question %} <button class="accordion"> {{Question.question}} </button>
+        <div class="panel">
+            <p style="padding: 15px; padding-bottom:15px;"> {{Question.answer|safe}} <br> <br> <br> </p>
+        </div> {% endfor %} {% if Question %} {% else %} <h5 class="text-center mt-5" style='font-family: Gilroy,Cairo,Helvetica,arial,serif;'> لا توجد الأسئلة متاحة </h5> {% endif %}
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("activee");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script> <br><br><br> <br><br> <br><br>
+</section> {% endblock %}

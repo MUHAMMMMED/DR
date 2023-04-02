@@ -1,0 +1,243 @@
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+<link rel="stylesheet" type="text/css" href="{%static 'css/landing.css'%}" />
+<title> </title> {% for home in slide %} {% if home.WebImage %} <div class="hero-imageWeb" style=" background-image: url('{{home.WebImage.url}}');">{% endif %} <div class="hero-text">
+        <h3 class="hero-text-h3">رسالتنا</h3>
+        <h1 class="hero-text-h1"> {{home.Title}} </h1>
+        <p class="hero-text-p"> {{home.Description}} </p> <a href="{% url 'About:ContactUs' %}">
+            <div> <button class="button button2 " style="font-weight: 700;"> إحجز موعد الآن </button> </div>
+        </a>
+    </div>
+</div> {% endfor %} {% for home in slide %} {% if home.WebImage %} <div class="hero-imageMobil" style=" background-image: url('{{home.MobilImage.url}}');">{% endif %} <div class="hero-text">
+        <h3 class="hero-text-h3">رسالتنا</h3>
+        <h1 class="hero-text-h1"> {{home.Title}} </h1>
+        <p class="hero-text-p"> {{home.Description}} </p> <a href="{% url 'About:ContactUs' %}">
+            <div> <button class="button button2 " style="font-weight: 700;"> إحجز موعد الآن </button> </div>
+        </a>
+    </div>
+</div> {% endfor %} {% for about in aboutDR %} <div class="flex-container-Info" style="  border: 0px solid #fff;">
+    <div class="flex-right-info"> {% if about.Image %} <img src="{{about.Image.url}}" class="imageinfo" alt="{{about.Title}}">{% endif %} </div>
+    <div class="flex-left-info ">
+        <div class="site-heading ">
+            <h3 class="flex-left-info-H3 " style="color: #000; text-align: right;">{{about.Title}} </h3>
+            <hr>
+        </div> <br>
+        <p class="flex-left-info-P  "> {{about.Description}} </p>
+        <h5 class="flex-left-info-H5 "> {{about.Spotlight}} </h5>
+        <p class="flex-left-info-P  "> {{about.SpotlightDescription}} </p>
+        <div class="desc">
+            <div style="width: 100%;"> <a href="{% url 'About:About' %}"> <button class="buttoncard">عن الدكتورة</button></a> </div>
+        </div>
+    </div>
+</div> {% endfor %} {% for home in slide %} <div class="flex-containeryoutube" style="border: 0px solid  #fff; "> {% if home.video_id %} <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{home.video_id}}" style="border: 2px solid  #dda741; 
+  border-radius: 8px;"> {% endif %} </iframe> </div> {% endfor %} <div class="flex-containeryoutube">
+    <style type="text/css"> </style>
+    <div style="width: 100%;">
+        <div class="site-heading ">
+            <h3 class="Title  ">قصص نجاح </h3>
+            <hr>
+        </div><br>
+    </div>
+    <div style="width: 100%; position: relative; float: right;"> {% for home in Image %} {% if home.Image %} <div class="gallerybefor-home"> <img src="{{home.Image.url}}" alt="{{home.ImageName}}" class="imagebefor-home">{% endif %} </div> {% endfor %}</div> <a href="{% url 'Stories:stories' %} ">
+        <div style="width:100%;  height: 60px; position: relative; "> <button class="buttoncard"> عرض المزيد</button> </div>
+    </a>
+</div>
+</div> {% for about in Specifications %} <div class="flex-container-Info" style="  border: 0px solid #fff;">
+    <div class="flex-right-info"> {% if about.Image %} <img src="{{about.Image.url}}" class="imageinfo" alt="{{about.Title}}">{% endif %} </div>
+    <div class="flex-left-info ">
+        <div class="site-heading ">
+            <h3 class="flex-left-info-H3 " style="color: #000;"> {{about.Title}} </h3>
+            <hr> <br>
+        </div>
+        <h5 class="flex-left-info-H5 ">{{about.Title1}} </h5>
+        <p class="flex-left-info-P"> {{about.Description1}} </p>
+        <h5 class="flex-left-info-H5 "> {{about.Title2}} </h5>
+        <p class="flex-left-info-P"> {{about.Description2}} </p>
+        <h5 class="flex-left-info-H5 "> {{about.Title3}} </h5>
+        <p class="flex-left-info-P"> {{about.Description3}} </p>
+    </div>
+</div> {% endfor %} <div class="flex-containeryoutube">
+    <div style="width: 100%;">
+        <div class="site-heading ">
+            <h3 class="Title "> قصص نجاح </h3>
+            <hr>
+        </div><br>
+    </div>
+    <div style="width: 100%; position: relative; float: right;"> {% for home in youtube %} <div class="galleryyoutube"> {% if home.video_id %} <iframe class="youtube" src="https://www.youtube.com/embed/{{home.video_id}}"> </iframe> {% endif %} </div> {% endfor %} </div>
+    <div style="width: 100%;"> <a href="{% url 'Stories:stories' %} ">
+            <div style="width:100%;  height: 60px; position: relative; "> <button class="buttoncard"> عرض المزيد</button> </div>
+        </a> </div>
+</div>
+<style>
+    div.gallery-home {
+        margin: 10px;
+        border: 1px solid #ccc;
+        float: right;
+        width: 31%;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    div.gallery-home:hover {
+        border: 2px solid #dda741;
+    }
+
+    div.gallery-home img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    div.gallery-home img:hover {
+        transform: scale(1.5);
+        overflow: hidden;
+        transition: 0.1s ease all;
+    }
+
+    div.desc-home {
+        padding: 15px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .buttoncard-home {
+        border-radius: 5px;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: #686565;
+        border: 1px solid #ccc;
+        padding-bottom: 5px;
+        text-align: center;
+        cursor: pointer;
+        width: 30%;
+        background-color: #000;
+        border: none;
+        color: #dda741;
+    }
+
+    .buttoncard-home:hover {
+        border: 1px solid #dda741;
+    }
+
+    @media (max-width: 800px) {
+        div.gallery-home {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 49%;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        div.gallery-home {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 100%;
+            border-radius: 5px;
+        }
+    }
+    }
+
+    @media screen and (max-width: 650px) {
+        div.gallery-home {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 100%;
+            border-radius: 5px;
+        }
+    }
+</style>
+<div class="flex-container-Info" style="  border: 0px solid #fff;">
+    <div style="width: 100%;">
+        <div class="site-heading ">
+            <h3 class="Title "> أفضل خدماتنا </h3>
+            <hr>
+        </div><br>
+    </div>
+    <div style="width: 100%; position: relative; float: right;"> {% for Landing in Landing %} <div class="gallery"> <a href="{% url 'Landingpage:landingPageDetails'  Landing.slug %}"> {% if Landing.Image %} <img src="{{Landing.Image.url}}" alt="{{Landing.Title}} " width="600" height="400">{% endif %} </a>
+            <div style="text-align: center;">
+                <h5 class="flex-left-info-H5" style="text-align: center;"> {{Landing.Title}}</h5>
+                <hr>
+                <p class="gallery-p"> {{Landing.Description}} </p>
+            </div>
+            <div class="desc"> <a href="{% url 'Landingpage:landingPageDetails'  Landing.slug %}"> <button class="buttoncard"> احجز الآن</button> </a> </div>
+        </div> {% endfor %} {% if Landing %} {% else %} <h5 class="text-center mt-5" style='font-family: Gilroy,Cairo,Helvetica,arial,serif;'> لا توجد خدمات متاحة </h5> {% endif %} <br><br><br><br> </div> <a href="{% url 'Landingpage:LandingAll' %}">
+        <div style="width:100%;  height: 60px; position: relative; "> <button class="buttoncard"> عرض المزيد</button> </div>
+    </a>
+</div>
+</div>
+<div class="flex-container-Info" style="  border: 0px solid #fff;">
+    <div class="flex-right-slideshow">
+        <div class="slideshow-text">
+            <div class="site-heading ">
+                <h3 class="slideshow-text-p"> عملاء سعداء </h3>
+                <hr>
+            </div>
+            <h4 class="slideshow-text-h4"> ماذا يقول مرضانا </h4>
+        </div>
+    </div>
+    <div class="flex-left-slideshow">
+        <div class="slideshow-container"> {% for about in reviews %} <div class="mySlides fade"> {% if about.Image %} <img src="{{about.Image.url}}" style="width:100%" alt="{{about.Name}}">{% endif %} </div> {% endfor %} <a class="prev" onclick="plusSlides(-1)">❮</a> <a class="next" onclick="plusSlides(1)">❯</a> </div> <br>
+    </div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+</div>
+<div class="flex-container-Info" style="  border: 0px solid #fff;">
+    <div class="flex-right-info"> {% for home in slide %} {% if  home.questionImage %} <img src="{{home.questionImage.url}}" class="imageinfo" alt=" "> {% endif %} {% endfor %} </div>
+    <div class="flex-left-info ">
+        <div class="site-heading ">
+            <h3 class="Title "> أشهر الأسئله وأجوبتها </h3>
+            <hr>
+        </div><br>
+        <p style="font-size: 15px;"> ستجد أدناه إجابات لبعض الأسئلة الأكثر شيوعًا نحن نضيف باستمرار الأسئلة الأكثر شيوعًا إلى هذه الصفحة </p> {% for home in questions %} <button class="accordion"> {{home.question}} </button>
+        <div class="panel">
+            <p style="padding: 15px;"> {{home.answer|safe}} </p>
+        </div> {% endfor %} <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+    </div>
+</div> {% endblock %}

@@ -1,0 +1,250 @@
+{% load static%}
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+    <title></title>
+    <link rel="icon" href="{% static 'img/favicon.ico'%}" type="image/x-icon">
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+    <script src="js/main.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head> <!--   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'> --> {% for info in information %} <div class="head">
+    <ul class="wrapper"> <a class="aa" href="{{info.facebooklinke}}">
+            <li class="icon facebook"> <span class="tooltip">Facebook</span> <span><i class="fab fa-facebook-f"></i></span> </li>
+        </a> <a class="aa" href="{{info.Twitterlinke}}">
+            <li class="icon twitter"> <span class="tooltip">Twitter</span> <span><i class="fab fa-twitter"></i></span> </li>
+        </a> <a class="aa" href="{{info.instagramlinke}}">
+            <li class="icon instagram"> <span class="tooltip">Instagram</span> <span><i class="fab fa-instagram"></i></span> </li>
+        </a> <a class="aa" href="{{info.snapchat}}">
+            <li class="icon snapchat"> <span class="tooltip">snapchat</span> <span><i class="fab fa-snapchat"></i></span> </li>
+        </a> <a class="aa" href="{{info.linkedinlinke}}">
+            <li class="icon facebook"> <span class="tooltip">linkedin</span> <span><i class="fab fa-linkedin"></i></span> </li>
+        </a> <a class="aa" href="{{info.Whatsapp}}">
+            <li class="icon whatsapp"> <span class="tooltip">whatsapp</span> <span><i class="fab fa-whatsapp"></i></span> </li>
+        </a> {% endfor %} </ul>
+</div>
+<script>
+    window.console = window.console || function(t) {};
+</script>
+<script>
+    if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+    }
+</script>
+</head>
+
+<body onload=todayDate()>
+    <style type="text/css">
+        .head0 {
+            width: 100%;
+            background: #dda741;
+            height: 70px
+        }
+
+        .head1 {
+            position: relative;
+            float: left;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .head0 {
+                width: 100%;
+                background: #dda741;
+                height: 50px
+            }
+
+            .head1 {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 650px) {
+            .head0 {
+                width: 100%;
+                background: #dda741;
+                height: 50px
+            }
+
+            .head1 {
+                display: none;
+            }
+        }
+    </style> {% for info in information %} <div class="head0">
+        <div class="head1">
+            <div style="color: #000;text-align: left; padding-top: 15px; padding-left: 25px; font-size: 25px;">
+                <h4> <i class="fa fa-phone" aria-hidden="true"> </i> <span> {{info.PHONE}}</span> </h4>
+            </div>
+        </div>
+        <div class="head1">
+            <div style="  color: #000;text-align: left; padding-top: 15px; padding-left: 25px; font-size: 25px;">
+                <h4> <i class="fa fa-map-marker"></i> <span> {{info.Address}}</span> </h4>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <section id="logo"> <a href="/">
+                <h1 style=" color: #dda741;">{{info.WebName}} </h1>
+            </a> {% endfor %} </section>
+        <section id="main-menu"> <input type="checkbox" id="drop" /> <label for="drop" class="toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+            <ul>
+                <li> <a href="/"> الرئيسية </a> </li>
+                <li> <a href="{% url 'Landingpage:LandingAll' %}"> خدماتنا </a></li>
+                <li> <a href="{% url 'About:About' %}"> عن الدكتور </a> </li>
+                <li><a href="{% url 'Stories:stories' %} "> قصص نجاح </a></li>
+                <li><a href="{% url 'About:Questions' %} "> أشهر الأسئله وأجوبتها </a> </li>
+                <li> <a href="{% url 'Blog:blogAll' %}"> المدونـة </a> </li>
+                <li> <a href="{% url 'About:ContactUs' %}"> اتـصل بـنـا </a> </li>
+            </ul>
+        </section>
+    </nav>
+    <main>
+        </head>
+
+        <body onload=todayDate()> {% block content %} {% endblock %} <style>
+                .divbut {
+                    margin: auto;
+                    padding: 25px;
+                    width: 200px;
+                }
+
+                @media screen and (max-width: 650px) {
+                    .button2 {
+                        padding: 12px 28px;
+                        width: 100%
+                    }
+
+                    .divbut {
+                        margin: auto;
+                        padding: 25px;
+                        width: 300px;
+                    }
+                }
+            </style>
+            <div class="booking">
+                <div class="flex-containerinfo" style=" background-color: #dda741;  border: 0px solid #777; width: 98%; border-radius: 8px;margin-top: 15px;  position: relative;
+  float: right;  margin-right: 1%;  ">
+                    <div class="divbut" style=""> <a href="{% url 'About:ContactUs' %}"> <button class="button button2"> احجز موعدك الان </button> </a> </div>
+                </div>
+            </div>
+            <footer class="footer" style=" 
+
+ background: #000;
+  position: relative;
+  float: right;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  margin-top: 25px;
+  padding: 2px;
+  border-top: 2px solid #e5ba68;
+  color: #e5ba68;
+   ">
+                <style type="text/css">
+                    .inFo {
+                        position: relative;
+                        width: 80%;
+                        margin: auto;
+                    }
+
+                    .inFo1 {
+                        padding: 20px;
+                        position: relative;
+                        float: right;
+                    }
+
+                    .inFo2 {
+                        color: #dda741;
+                        text-align: right;
+                        padding-top: 15px;
+                        padding-right: 25px;
+                        font-size: 20px;
+                    }
+
+                    @media screen and (max-width: 992px) {
+                        .inFo {
+                            position: relative;
+                            width: 100%;
+                            padding: 15px;
+                        }
+
+                        .inFo1 {
+                            position: relative;
+                            float: right;
+                        }
+
+                        .inFo2 {
+                            color: #dda741;
+                            text-align: center;
+                            padding-top: 5px;
+                            padding-right: 0px;
+                            font-size: 15px;
+                        }
+                    }
+
+                    @media screen and (max-width: 650px) {
+                        .inFo {
+                            position: relative;
+                            width: 100%;
+                            padding: 15px;
+                        }
+
+                        .inFo1 {
+                            position: relative;
+                            float: right;
+                        }
+
+                        .inFo2 {
+                            color: #dda741;
+                            text-align: center;
+                            padding-top: 5px;
+                            padding-right: 0px;
+                            font-size: 15px;
+                        }
+                    }
+                </style> {% for info in information %} <div style=" width: 100%;  position: relative;float: right;">
+                    <div class="inFo">
+                        <div class="inFo1">
+                            <div class="inFo2">
+                                <h4> <i class="fa fa-map-marker"></i> <span> {{info.Address}}</span> </h4>
+                            </div>
+                        </div>
+                        <div class="inFo1">
+                            <div class="inFo2">
+                                <h4> <i class="fa fa-clock-o"></i> <span> {{info.OpeningHours}}</span> </h4>
+                            </div>
+                        </div>
+                        <div class="inFo1">
+                            <div class="inFo2">
+                                <h4><i class="fa fa-phone" aria-hidden="true"> </i> <span>{{info.PHONE}}</span> </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-md-12" style=" text-align: center; font-size: 14px; color: #e5ba68; "> <br> <span style="color: #e5ba68;"> {{info.Copyright}}Copyright © <em id="date" style="color: #e5ba68;"></em> </span> </div> <br>
+                <div class="col-md-12" style=" text-align: center; font-size: 14px;color: #e5ba68;" onload=todayDate()> <a class="aa" href="https://wa.me/+966551808768" style="color: #e5ba68;">انشأ من قبل | الهدف الرقمي</a> </div> <br>
+            </footer>
+            <script>
+                function todayDate() {
+                    var d = new Date();
+                    var n = d.getFullYear() + "  ";
+                    return document.getElementById("date").innerHTML = n;
+                }
+            </script>
+            <div class="floating_btn"> <a target="_blank" href="https://wa.me/{{info.Whatsapp}} ">
+                    <div class="contact_icon"> <i class="fab fa-whatsapp my-float"></i> </div>
+                </a> </div>
+            <div class="type nz-button-2">
+                <div> <a href="tel:#" class="nz-bt nz-bt-2"><span class="txt">{{info.PHONE}} </span><span class="round"><i class="fa fa-phone faa-ring faa-slow animated"></i></span></a> </div> <!--   <div class="flut"   ><button class="button button3"onclick="document.getElementById('id01').style.display='block'"> احجز الآن</button></div> --> {% endfor %}

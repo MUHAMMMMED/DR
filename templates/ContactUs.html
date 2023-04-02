@@ -1,0 +1,23 @@
+{% extends "BaseGeneric.html" %} {% load bootstrap4 %} {% load static%} {% block content %} <title></title>
+<section class=" flex-container-Info-form">
+    <div class="site-heading " style="width: 100%;">
+        <h3 class="Title "> احجز الآن</h3>
+        <hr>
+    </div>
+    <div class="flex-container-form" style="  border: 0px solid #000;">
+        <div class="container-form">
+            <style type="text/css">
+                label {
+                    display: none;
+                }
+            </style>
+            <form action=" " method="post"> {% csrf_token %} {% bootstrap_form form  %} {% buttons %} <input type="submit" class="form-input" value="احجز الآن">{% endbuttons %} </form>
+        </div>
+    </div>
+    </div>
+</section>
+<style type="text/css">
+    .booking {
+        display: none;
+    }
+</style> {% endblock %}

@@ -1,0 +1,65 @@
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %} <title></title>
+<section class="flex-container-stories">
+    <div style="width: 100%;">
+        <div class="site-heading ">
+            <h3 class="Title "> قصص نجاح </h3>
+            <hr>
+        </div><br>
+    </div>
+    <style> </style>
+    </head>
+
+    <body>
+        <section class="flex-container-stories">
+            <div class="tab1"> <button class="tablinks" onclick="openCity(event, 'image')">قصص صور </button> <button class="tablinks" onclick="openCity(event, 'video')"> قصص فيديو</button> </div>
+            <div id="image" class="tabcontent" style="display: block;">
+                <div style="width: 100%; position: relative; float: right;"> {% for stories in Image %} <div class="post">
+                        <div class="gallery-stories"> {% if stories.Image %} <img src="{{stories.Image.url}}" alt="{{stories.Title}} " width="600" height="400">{% endif %} <div style="text-align: center;padding-top: 5px;">
+                                <h5 class="flex-left-info-H5" style="text-align: center;"> {{stories.Title}} </h5>
+                                <hr>
+                                <div style="padding: 20px;">
+                                    <p class="gallery-p"> {{stories.Description|safe}} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endfor %} <div class="post">
+                        <div class="tab2"> <button class="tablinks" onclick="openCity(event, 'video')"> قصص فيديو</button> </div>
+                    </div>
+                </div>
+            </div>
+            <div id="video" class="tabcontent">
+                <div style="width: 100%; position: relative; float: right;"> {% for stories in youtube %} <div class="post">
+                        <div class="gallery-stories"> {% if stories.video_id %} <iframe class="youtube" src="https://www.youtube.com/embed/{{stories.video_id}}"></iframe>{% endif %} <div style="text-align: center;padding-top: 5px;">
+                                <h5 class="flex-left-info-H5" style="text-align: center;">{{stories.Title}} </h5>
+                                <hr>
+                                <div style="padding: 20px;">
+                                    <p class="gallery-p"> {{stories.Description|safe}} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> {% endfor %} <div class="post">
+                    <div class="tab2"> <button class="tablinks" onclick="openCity(event, 'image')">قصص صور </button> </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section> <br><br><br><br> </div>
+ 
+        </div>
+</section>
+<script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script> {% endblock %}

@@ -1,0 +1,143 @@
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %} <title></title>
+<div style="width:100%; height: auto; position: relative;  ">
+    <section class="flex-container-InfoAbout">
+        <div class="site-heading ">
+            <h3 class="flex-left-info-H3 " style="color: #000; text-align: center;">عن الدكتورة</h3>
+            <hr>
+        </div>
+    </section> {% for about in aboutDR %} <section class="flex-container-InfoAbout">
+        <div class="flex-right-info"> {% if about.Image %} <img src="{{about.Image.url}}" class="imageinfo" alt="{{about.Title}}">{% endif %} </div>
+        <div class="flex-left-info ">
+            <div class="site-heading ">
+                <h3 class="flex-left-info-H3 " style="color: #000; text-align: right;"> {{about.Title}} </h3>
+                <hr>
+            </div> <br>
+            <p class="flex-left-info-P  "> {{about.Description}} </p>
+            <h5 class="flex-left-info-H5 "> {{about.Spotlight}} </h5>
+            <p class="flex-left-info-P  "> {{about.SpotlightDescription}} </p>
+        </div>
+    </section> {% endfor %} {% for about in Specifications %} <section class="flex-container-InfoAbout">
+        <div class="flex-right-info"> {% if about.Image %} <img src="{{about.Image.url}}" class="imageinfo" alt="{{about.Title}}">{% endif %} </div>
+        <div class="flex-left-info ">
+            <div class="site-heading ">
+                <h3 class="flex-left-info-H3 " style="color: #000;"> {{about.Title}} </h3>
+                <hr> <br>
+            </div>
+            <h5 class="flex-left-info-H5 "> {{about.Title1}} </h5>
+            <p class="flex-left-info-P"> {{about.Description1}} </p>
+            <h5 class="flex-left-info-H5 "> {{about.Title2}} </h5>
+            <p class="flex-left-info-P"> {{about.Description2}} </p>
+            <h5 class="flex-left-info-H5 "> {{about.Title3}} </h5>
+            <p class="flex-left-info-P"> {{about.Description3}} </p>
+        </div>
+    </section> {% endfor %} <section class="flex-container-InfoAbout">
+        <style> </style> {% for about in about %} <div class="qs">
+            <div class="site-heading ">
+                <h3 class="Title "> رسالتنا, رؤيتنا وقيمنا </h3>
+                <hr>
+            </div><br>
+            <p style="font-size: 15px;"> ستجد أدناه إجابات لبعض الأسئلة الأكثر شيوعًا   نحن نضيف باستمرار الأسئلة الأكثر شيوعًا إلى هذه الصفحة </p> <button class="accordion"> رسالتنا</button>
+            <div class="panel">
+                <p style="padding: 15px;"> {{about.Ourmessage}} </p>
+            </div> <button class="accordion"> رؤيتنا</button>
+            <div class="panel">
+                <p style="padding: 15px;"> {{about.Ourvision}} </p>
+            </div> <button class="accordion"> قيمنا</button>
+            <div class="panel">
+                <p style="padding: 15px;"> {{about.rateus}} </p>
+            </div>
+        </div> {% endfor %} <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("activee");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+    </section>
+    <div class="flex-container-Info" style="  border: 0px solid #fff;">
+        <div class="flex-right-slideshow">
+            <div class="slideshow-text">
+                <div class="site-heading ">
+                    <h3 class="slideshow-text-p"> عملاء سعداء </h3>
+                    <hr>
+                </div>
+                <h4 class="slideshow-text-h4"> ماذا يقول مرضانا </h4>
+            </div>
+        </div>
+        <div class="flex-left-slideshow">
+            <div class="slideshow-container"> {% for about in reviews %} <div class="mySlides fade"> {% if about.Image %} <img src="{{about.Image.url}}" style="width:100%" alt="{{about.Name}}">{% endif %} </div> {% endfor %} <a class="prev" onclick="plusSlides(-1)">❮</a> <a class="next" onclick="plusSlides(1)">❯</a> </div> <br>
+        </div>
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+    </div>
+    <section class="flex-container-InfoAbout1">
+        <div style="width: 100%;">
+            <div class="site-heading ">
+                <h3 class="Title  "> صور من داخل العيـــادة </h3>
+                <hr>
+            </div><br>
+        </div> {% for about in clinicphotos %} <div class="gallerybefor-home"> {% if about.image %} <img src="{{about.image.url}}" alt="{{about.imagename}}" class="imagebefor-home">{% endif %} </div> {% endfor %}
+</div>
+</section>
+<section class=" flex-container-Info-form">
+    <div class="mapouter" style=" border: 2px solid  #dda741;    border-radius: 10px;">
+        <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=660&amp;height=385&amp;hl=en&amp;q=مجمع سفان الطبي&amp;t=p&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://pdflist.com/" alt="pdf download">Pdf download</a></div>
+        <style>
+            .mapouter {
+                position: relative;
+                text-align: right;
+                width: 100%;
+                height: 385px;
+            }
+
+            .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                width: 100%;
+                height: 385px;
+            }
+
+            .gmap_iframe {
+                height: 385px !important;
+            }
+        </style>
+    </div>
+</section> {% endblock %}

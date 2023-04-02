@@ -1,0 +1,58 @@
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %} <title></title>
+<style type="text/css">
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5 {
+        font-family: font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    p,
+    .p {
+        font-family: font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    ul,
+    .ul {
+        font-family: font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    li,
+    .li {
+        font-family: font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    image {
+        width: 100%;
+    }
+
+    .silderimg {
+        border: 1px solid #dda741;
+        border-radius: 8px;
+        width: 100%;
+        height: auto;
+    }
+</style>
+<section class="flex-container-services"> {% if Blogdetails.Image%} <img class="silderimg" src="{{Blogdetails.Image.url}}" alt="{{Blogdetails.Titel}}">{% endif %} <div style="width: 100%;">
+        <div class="site-heading ">
+            <h3 class="Title " style="text-align: center;"> {{Blogdetails.Titel}} </h3>
+            <hr>
+        </div>
+    </div>
+    <div style="width: 90%; position: relative; margin: auto; "> {{Blogdetails.body|safe}} <br><br><br><br> </div>
+    <!-- <div style="width:100%;  height: 60px; position: relative; ">
+  <button class="articleBtn" >    عرض المزيد</button> </div>
+
+ -->
+    </div>
+</section> {% endblock %}
